@@ -3,8 +3,8 @@
 #include <stdlib.h>
 #include <setjmp.h>
 
-#define exception(...) do { __VA_ARGS__ pop_jmp(); } while(0)
-#define try() int e; { int j = push_jmp(); e = setjmp(jmp_table.buf[j]); } if(!e)
+#define exception(...) do { int e; { int j = push_jmp(); e = setjmp(jmp_table.buf[j]); } __VA_ARGS__ pop_jmp(); } while(0)
+#define try() if(!e)
 #define throw(e) longjmp(jmp_table.buf[jmp_table.count - 1], e)
 #define catch(ex) else if(e == ex)
 #define finally() else
