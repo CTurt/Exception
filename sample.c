@@ -1,13 +1,16 @@
 /*
+	CTurt's implementation of exceptions in C
+	licensed under the MIT License (MIT)
+	
+	https://github.com/CTurt/Exception
+*/
 
-Sample of exception handling in C
+/*
+	Program output:
 
-Program output:
-
-Doing something...
-Process failed due to error 1!
-End of program
-
+	Doing something...
+	Process failed due to error 1!
+	End of program
 */
 
 #include <stdio.h>
@@ -34,7 +37,7 @@ int main(void) {
 			printf("Process failed due to error 1!\n");
 		}
 		
-		// is exectuted when a throw is called within the try and there
+		// is executed when a throw is called within the try and there
 		// is no catch specific to the exception
 		finally() {
 			// use e to get the value passed to throw
