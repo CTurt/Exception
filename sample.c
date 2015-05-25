@@ -1,11 +1,4 @@
 /*
-	CTurt's implementation of exceptions in C
-	licensed under the MIT License (MIT)
-	
-	https://github.com/CTurt/Exception
-*/
-
-/*
 	Program output:
 
 	Doing something...

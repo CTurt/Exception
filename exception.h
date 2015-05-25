@@ -1,10 +1,3 @@
-/*
-	CTurt's implementation of exceptions in C
-	licensed under the MIT License (MIT)
-	
-	https://github.com/CTurt/Exception
-*/
-
 #pragma once
 
 #include <stdlib.h>
@@ -32,4 +25,4 @@ static inline void pop_jmp(void) {
 	jmp_table.buf = realloc(jmp_table.buf, sizeof(jmp_buf) * (--jmp_table.count));
 }
 
-inline void free_exceptions(void);
+void free_exceptions(void);
