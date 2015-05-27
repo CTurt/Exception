@@ -3,11 +3,11 @@
 #include <stdlib.h>
 #include <setjmp.h>
 
-#define exception(...) do { int e; volatile int b = 0; { int j = push_jmp(); e = setjmp(jmp_table.buf[j]); b++; if(b == 2) pop_jmp(); } __VA_ARGS__ if(b == 1) pop_jmp(); } while(0)
-#define try() if(!e)
+#define try(...) int e; volatile int b = 0; { int j = push_jmp(); e = setjmp(jmp_table.buf[j]); b++; if(b == 2) pop_jmp(); } if(!e) __VA_ARGS__ tried
+#define tried if(b == 1) pop_jmp()
 #define throw(e) longjmp(jmp_table.buf[jmp_table.count - 1], e)
 #define catch(ex) else if(e == ex)
-#define finally() else
+#define finally else
 
 struct jmp_table {
 	jmp_buf *buf;
